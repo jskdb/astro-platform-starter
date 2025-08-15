@@ -13,7 +13,8 @@ export const POST: APIRoute = async ({ request }) => {
     await purgeCache({ tags });
     return new Response(
         JSON.stringify({
-            invalidated: tags
+            invalidated: tags,
+            token: process.env.NETLIFY_PURGE_API_TOKEN
         })
     );
 };
